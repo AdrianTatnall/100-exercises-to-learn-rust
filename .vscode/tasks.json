@@ -1,0 +1,22 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "cargo test on lib.rs save",
+      "type": "shell",
+      "command": "cargo",
+      "args": [
+        "watch",
+        "-w",
+        "src/lib.rs",
+        "-x",
+        "test"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "isBackground": true,
+      "problemMatcher": []
+    }
+  ]
+}

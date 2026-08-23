@@ -4,7 +4,13 @@ pub fn factorial(n: u32) -> u32 {
     // interprets as "I'll get back to this later", thus
     // suppressing type errors.
     // It panics at runtime.
-    todo!()
+    let mut factorial = 1;
+    let mut m = n;
+    while m > 0 {
+        factorial = factorial * m;
+        m -= 1;
+    }
+    factorial
 }
 
 #[cfg(test)]
@@ -29,5 +35,11 @@ mod tests {
     #[test]
     fn fifth() {
         assert_eq!(factorial(5), 120);
+    }
+    #[test]
+    fn sixth() {
+        let mut n = 6;
+        assert_eq!(factorial(n), 120 * 6);
+        n = 0;
     }
 }
