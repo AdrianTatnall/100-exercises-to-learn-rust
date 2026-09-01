@@ -23,13 +23,8 @@ mod tests {
 
         // You could solve this by using exactly the same expression as above,
         // but that would defeat the purpose of the exercise. Instead, use a genuine
-<<<<<<< Updated upstream
-        // `i8` value that is equivalent to `255` when converted to `u8`.
-        let y: i8 = todo!();
-=======
         // `i8` value that is equivalent to `255` when converted from `u8`.
-        let y: i8 = x;
->>>>>>> Stashed changes
+        // Adrian let y: i8 = x;
 
         assert_eq!(x, y);
     }
