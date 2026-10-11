@@ -12,6 +12,43 @@
 // interested in learning more about it.
 // You don't have to though: it's perfectly okay to write three separate
 // implementations manually. Venture further only if you're curious.
+pub trait Power<Exponent = Self> {
+    type Output;
+
+    fn power(&self, n: Exponent) -> Self::Output;
+}
+
+impl Power<u16> for u32 {
+    type Output = u32;
+
+    fn power(&self, n: u16) -> Self::Output {
+        self.pow(n.into())
+    }
+}
+
+impl Power<&u32> for u32 {
+    type Output = u32;
+
+    fn power(&self, n: &u32) -> Self::Output {
+        self.power(*n)
+    }
+}
+
+impl Power<u32> for u32 {
+    type Output = u32;
+
+    fn power(&self, n: u32) -> Self::Output {
+        self.pow(n)
+    }
+}
+
+impl Power<u8> for u32 {
+    type Output = u32;
+
+    fn power(&self, n: u8) -> Self::Output {
+        self.pow(n.into())
+    }
+}
 
 #[cfg(test)]
 mod tests {
@@ -32,6 +69,12 @@ mod tests {
     #[test]
     fn test_power_ref_u32() {
         let x: u32 = 2_u32.power(&3u32);
+        assert_eq!(x, 8);
+    }
+
+    #[test]
+    fn test_power_usize() {
+        let x: u32 = 2_u32.power(3u8);
         assert_eq!(x, 8);
     }
 }
